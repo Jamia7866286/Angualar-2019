@@ -1,0 +1,16 @@
+<div class="todo p-5">
+	<h1>Welcome todo app</h1>
+	<form class="form-inline">
+		<div class="form-group">
+			<input  [(ngModel)]='myval' value="{{newval}}" type="text" name="inp" class="form-control" placeholder="Enter your text here...">
+		</div> 
+		<button type="submit" class="btn btn-success ml-2" (click)="AddItem(myval)">Add item</button>
+		<button type="button" [hidden]="!updatebtn" (click)="updateval()" class="btn btn-warning ml-2">Update</button>
+	</form>
+
+	
+		
+	<ul class="list-group mt-3 ">
+      <li class="list-group-item w-50 mt-2" *ngFor="let item of items; index as i"> {{item}} <i (click)='delete(i)' class="fa fa-trash-o"></i>  <i (click)="update(i)" class="fa fa-pencil"></i> </li>
+    </ul>
+</div>
