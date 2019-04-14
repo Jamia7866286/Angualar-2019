@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { HeroesComponent } from './heroes/heroes.component';
+import { Addtasktodoapp2Component } from './addtasktodoapp2/addtasktodoapp2.component';
+
 
 @Component({
   selector: 'app-root',

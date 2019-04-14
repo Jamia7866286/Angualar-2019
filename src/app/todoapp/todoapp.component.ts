@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 @Component({
   selector: 'app-todoapp',
   templateUrl: './todoapp.component.html',
@@ -8,36 +8,51 @@ import { Component, OnInit } from '@angular/core';
 
 export class TodoappComponent{
 
-	public myval:any;
-	public newval:any;
-	public updatebtn:any;
+	myval:string;
+	updatebtn = false;
 	currentIndex;
-	items = ['javascrit', 'nodejs', 'angular'];
+	items = [];
 
 
 
 	AddItem(s){
 		
-		console.log(s);
+		console.log(this.items.length);
 		if(s){
 			this.items.push(s);
 		} else {
-			Swal.fire('Oops...', 'Something went wrong!', 'error')
-			// alert("Please enter");
+			
+			alert("Please enter");
 		}
 		this.myval = "";	
 	}
 
 	delete(index){
 		this.items.splice(index,1);
+		this.myval = "";
+		this.updatebtn = false;
+
 	}
-	update(index){
+	update(index,update){
 		this.currentIndex = index;
+		update.focus();
 		this.updatebtn = true;
-		this.newval = this.items[index];
+		this.myval = this.items[index];
 	}
 	
 	updateval(){
-		this.items[this.currentIndex] = this.myval;
+		this.updatebtn = false;
+		if(this.myval !== ""){
+			this.items[this.currentIndex] = this.myval;
+			this.myval = "";
+		}
+		else{
+			alert("Select Your value.");
+		}
+		
+		// if(this.myval && this.newval.trim() !== this.myval.trim()){
+		// else if(this.newval.trim() === this.myval.trim()){
 	}
+
+
 }
