@@ -9,6 +9,8 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { TodoappComponent } from './todoapp/todoapp.component';
 import { Addtasktodoapp2Component } from './addtasktodoapp2/addtasktodoapp2.component';
+
+// import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +22,7 @@ import { Addtasktodoapp2Component } from './addtasktodoapp2/addtasktodoapp2.comp
     Addtasktodoapp2Component
   ],
   imports: [
+    
     BrowserModule,
     AppRoutingModule,
     FormsModule,

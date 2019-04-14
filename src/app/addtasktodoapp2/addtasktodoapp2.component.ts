@@ -17,12 +17,26 @@ export class Addtasktodoapp2Component {
 	  additem(item,refInputval){
 	  	if(item){
 			  this.tasks.push(item);
-	  		// alert("Thanks, Your task Successfully Add.");
+			  // alert("Thanks, Your task Successfully Add.");
+			  setTimeout(function(){
+				Swal.fire(
+					'Good job!',
+					'You clicked the button!',
+					'success'
+				  )
+			  },500)
+			  
 	  		this.itemval = "";
 	  		refInputval.focus();
 	  	}
 	  	else{
 			  // alert("Please Enter Value.");
+			  Swal.fire({
+				type: 'error',
+				title: 'Oops...',
+				text: 'Something went wrong!',
+				footer: '<a href>Why do I have this issue?</a>'
+			  })
 	  	}
 	  }
 
