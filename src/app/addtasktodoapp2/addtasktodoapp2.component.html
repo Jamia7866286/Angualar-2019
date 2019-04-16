@@ -11,8 +11,8 @@
 			<div class="al-task text-center">
 				<div class="">
 				  <button type="button" class="btn btn-secondary mr-2"><i class="fa fa-list" aria-hidden="true"></i> All tasks</button>
-				  <button type="button" class="btn btn-danger mr-2"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete tasks</button>
-				  <button type="button" class="btn btn-danger mr-2"><i class="fa fa-trash-o" aria-hidden="true"></i> Clear All tasks</button>
+				  <button type="button" class="btn btn-danger mr-2" (click)="delete_selected_task(index1)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete selected tasks</button>
+				  <button type="button" class="btn btn-danger mr-2" (click)="clearAllTasks()"><i class="fa fa-trash-o" aria-hidden="true"></i> Clear All tasks</button>
 				  <button type="button" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Complete tasks</button>
 				</div>
 			</div>
@@ -22,9 +22,9 @@
 
 	<ul class="list-group">
 	  <li class="list-group-item pl-2" *ngFor="let item of tasks; index as index1">
-		<div class="custom-control custom-checkbox">
-		  <input type="checkbox" class="custom-control-input" id={{index1}}>
-		  <label class="custom-control-label" for={{index1}}>{{ item }}</label>
+		<div  class="custom-control custom-checkbox">
+		  <input type="checkbox" class="custom-control-input" (change)="deleteCheckedTask($event.target.checked,index1)" id={{index1}}>
+		  <label  class="custom-control-label" for={{index1}}>{{ item }}</label>
 		</div>
 		<i class="fa fa-trash-o" aria-hidden="true" (click)="deleteitem(index1,refInputval)"></i>
 		<i class="fa fa-pencil" aria-hidden="true" (click)="editVal(index1,refInputval)"></i>
