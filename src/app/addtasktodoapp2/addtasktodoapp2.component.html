@@ -42,7 +42,7 @@
                (change)="deleteCheckedTask($event.target.checked, i)"
                id="{{ i }}"
             />
-            <label class="custom-control-label" for="{{ i }}">{{ item }}{{ i }}</label>
+            <label class="custom-control-label" for="{{ i }}">{{ item }}</label>
          </div>
          <i class="fa fa-trash-o" aria-hidden="true" (click)="deleteitem(i, refInputval)"></i>
          <i class="fa fa-pencil" aria-hidden="true" (click)="editVal(i, refInputval)"></i>

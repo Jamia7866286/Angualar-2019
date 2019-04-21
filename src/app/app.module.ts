@@ -11,8 +11,9 @@ import { TodoappComponent } from "./todoapp/todoapp.component"
 import { Addtasktodoapp2Component } from "./addtasktodoapp2/addtasktodoapp2.component"
 import { SignUpFormComponent } from "./sign-up-form/sign-up-form.component"
 import { LogInFormComponent } from "./log-in-form/log-in-form.component"
-import { RouterModule } from "@angular/router"
-
+import { GithubinfoComponent } from "./githubinfo/githubinfo.component"
+import { HttpClientModule } from "@angular/common/http"
+import { GithubdataService } from "./githubdata.service"
 // import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 @NgModule({
    declarations: [
@@ -25,19 +26,17 @@ import { RouterModule } from "@angular/router"
       Addtasktodoapp2Component,
       SignUpFormComponent,
       LogInFormComponent,
+      GithubinfoComponent,
    ],
    imports: [
       BrowserModule,
       AppRoutingModule,
       FormsModule,
       ReactiveFormsModule,
-      RouterModule.forRoot([
-         { path: "calculator", component: CalculatorComponent },
-         { path: "todoapp2", component: Addtasktodoapp2Component },
-         { path: "signup", component: SignUpFormComponent },
-      ]),
+      HttpClientModule,
+      AppRoutingModule,
    ],
-   providers: [],
+   providers: [GithubdataService],
    bootstrap: [AppComponent],
 })
 export class AppModule {}

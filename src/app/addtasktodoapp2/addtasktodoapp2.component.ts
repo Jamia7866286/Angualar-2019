@@ -1,5 +1,6 @@
 import { Component } from "@angular/core"
 import Swal from "sweetalert2"
+import { debug } from "util"
 
 @Component({
    selector: "app-addtasktodoapp2",
@@ -87,6 +88,8 @@ export class Addtasktodoapp2Component {
 
    // delete-Checked-Task all checked task checkbox
    deleteCheckedTask(isChecked, index_id) {
+      console.log(isChecked, "hello ", index_id)
+
       if (isChecked && !this.dltCheckedTaskArray.includes(index_id)) {
          console.log("Element nither add before")
          this.dltCheckedTaskArray.push(index_id)
@@ -98,6 +101,9 @@ export class Addtasktodoapp2Component {
 
    //   delete_selected_task method
    delete_selected_task(index_id) {
+      //   console.log(index_id)
+      console.log(this.dltCheckedTaskArray.includes(index_id))
+
       this.showAlltasks = [...this.tasks]
       if (
          this.dltCheckedTaskArray.includes(index_id) == this.tasks.includes(index_id) &&
