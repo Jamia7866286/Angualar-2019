@@ -1,4 +1,51 @@
-<p>
-   githubinfo works!
-</p>
-<button type="button" (click)="select()">clicks</button>
+<div class="github-details">
+   <div class="row">
+      <div class="col-md-12">
+         <div class="todo-heading bg-primary text-white  text-center">
+            <h2 class="font-weight-bold m-0 p-3">Welcome to Github User Profile</h2>
+         </div>
+      </div>
+   </div>
+   <form (submit)="select(userProfile)">
+      <div class="form-group">
+         <div class="input-group mb-3 mt-3">
+            <input
+               class="form-control rounded-0"
+               [(ngModel)]="userProfile"
+               #profileRef
+               autofocus
+               name="usernames"
+               placeholder="Enter User Name..."
+               type="text"
+            />
+            <div class="input-group-append">
+               <button
+                  class="btn text-white btn-success rounded-0"
+                  id="button-addon2"
+                  type="button"
+                  (click)="select(userProfile, profileRef)"
+               >
+                  Submit
+               </button>
+            </div>
+         </div>
+      </div>
+      <div class="card" style="width:400px">
+         <div class="card-box" [hidden]="avatar_default">
+            <img class="card-img-top" src="https://placeimg.com/640/480/nature" alt="Card image" />
+         </div>
+         <div class="card-box" [hidden]="!avatar_default">
+            <img class="card-img-top" src="{{ avatar }}" alt="Card image" />
+         </div>
+         <div class="card-body text-center">
+            <h4 class="card-title" [hidden]="profileTitle">Your Title here</h4>
+            <h4 class="card-title" [hidden]="!profileTitle">{{ profileTitle }}</h4>
+            <p class="card-text">
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cupiditate expedita amet
+               aperiam, aut nulla nesciunt.
+            </p>
+            <a href="{{ profileUrl }}" class="btn btn-primary">See Profile</a>
+         </div>
+      </div>
+   </form>
+</div>

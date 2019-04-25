@@ -14,7 +14,7 @@ import { LogInFormComponent } from "./log-in-form/log-in-form.component"
 import { GithubinfoComponent } from "./githubinfo/githubinfo.component"
 import { HttpClientModule } from "@angular/common/http"
 import { GithubdataService } from "./githubdata.service"
-// import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
+import { WeatherAppComponent } from "./weather-app/weather-app.component"
 @NgModule({
    declarations: [
       AppComponent,
@@ -27,6 +27,7 @@ import { GithubdataService } from "./githubdata.service"
       SignUpFormComponent,
       LogInFormComponent,
       GithubinfoComponent,
+      WeatherAppComponent,
    ],
    imports: [
       BrowserModule,

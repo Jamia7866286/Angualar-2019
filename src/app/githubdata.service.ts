@@ -6,7 +6,7 @@ import { HttpClient } from "@angular/common/http"
 export class GithubdataService {
    constructor(private http: HttpClient) {}
 
-   getData() {
-      return this.http.get("https://api.github.com/users")
+   getData(id) {
+      return this.http.get("https://api.github.com/users/" + id)
    }
 }

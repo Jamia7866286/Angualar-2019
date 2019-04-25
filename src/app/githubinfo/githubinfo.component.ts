@@ -1,35 +1,30 @@
-import { Component, OnInit, OnDestroy, Renderer2 } from "@angular/core"
-import { Renderer3 } from "@angular/core/src/render3/interfaces/renderer"
+import { Component, Renderer2 } from "@angular/core"
 import { GithubdataService } from "../githubdata.service"
 @Component({
    selector: "app-githubinfo",
    templateUrl: "./githubinfo.component.html",
    styleUrls: ["./githubinfo.component.less"],
 })
-export class GithubinfoComponent implements OnInit, OnDestroy {
+export class GithubinfoComponent {
    constructor(private _render: Renderer2, private gituser: GithubdataService) {}
-   data
-   users: any
 
-   ngOnInit() {
-      //network request;
-      //data r
-      this.data = "this si s"
-   }
+   // Git hub variables
+   avatar: any
+   avatar_default = false
+   profileTitle = false
+   profileUrl: any
+   userProfile: string
 
-   select() {
-      this.gituser.getData().subscribe(data => {
-        for( let i =0; i < Object.keys(data).length; i++)
-{
-  this.users = data[i].avatar_url;
-  console.log(this.users)
-}        
+   select(id: any, profileRef:any) {
+      this.gituser.getData(id).subscribe(data => {
+         console.log(data)
+         if (id === data.login) {
+            this.avatar_default = true
+            this.avatar = data.avatar_url
+            this.profileTitle = id
+            this.userProfile = ""
+            profileRef.focus()
+         }
       })
-   }
-   ngOnDestroy() {
-      //free data
-      this.data = ""
-      let a = 23
-      var b = 34
    }
 }

@@ -186,17 +186,14 @@
                         >
                            Enter minimum 8 character!
                         </p>
-                        <p
+                        <!-- <p
                            *ngIf="
-                              formfield.cpswd.invalid &&
-                              formfield.cpswd.dirty &&
-                              formfield.cpswd.errors.maxlength &&
-                              pswd === cpswd
+                           formfield.value.cpswd !== formfield.value.pswd
                            "
                            class="alert alert-danger m-0 py-1 px-2"
                         >
                            Enter maximum 15 character!
-                        </p>
+                        </p> -->
                         <input
                            class="btnRegister"
                            type="submit"
