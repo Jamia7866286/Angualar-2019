@@ -7,6 +7,6 @@ export class GithubdataService {
    constructor(private http: HttpClient) {}
 
    getData(id) {
-      return this.http.get("https://api.github.com/users/" + id)
+      return this.http.get("https://api.github.com/users/" + id);
    }
 }
