@@ -16,14 +16,15 @@
                   <i class="fa fa-list" aria-hidden="true"></i>
                   All tasks
                </button>
-               <button type="button" class="btn btn-danger mr-2" (click)="delete_selected_task(index1)">
-                  <i class="fa fa-trash-o" aria-hidden="true"></i>
-                  Delete selected tasks
-               </button>
                <button type="button" class="btn btn-danger mr-2" (click)="clearAllTasks()">
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
                   Clear All tasks
                </button>
+               <button type="button" class="btn btn-danger mr-2" (click)="delete_selected_task(index1)">
+                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  Delete selected tasks
+               </button>
+
                <button type="button" class="btn btn-success">
                   <i class="fa fa-check" aria-hidden="true"></i>
                   Complete tasks
@@ -53,18 +54,18 @@
    </ul>
 
    <ul class="list-group" *ngIf="allItemShow">
-      <li class="list-group-item pl-2" *ngFor="let item of showAlltasks; index as index1">
+      <li class="list-group-item pl-2" *ngFor="let item_All of showAlltasks; let i_all = index">
          <div class="custom-control custom-checkbox">
             <input
                type="checkbox"
                class="custom-control-input"
-               (change)="deleteCheckedTask($event.target.checked, index1)"
-               id="{{ index1 }}"
+               (change)="deleteCheckedTask($event.target.checked, i_all)"
+               id="{{ i_all }}"
             />
-            <label class="custom-control-label" for="{{ index1 }}">{{ item }}</label>
+            <label class="custom-control-label" for="{{ i_all }}">{{ item_All }}</label>
          </div>
-         <i class="fa fa-trash-o" aria-hidden="true" (click)="deleteitem(index1, refInputval)"></i>
-         <i class="fa fa-pencil" aria-hidden="true" (click)="editVal(index1, refInputval)"></i>
+         <i class="fa fa-trash-o" aria-hidden="true" (click)="deleteitem(i_all, refInputval)"></i>
+         <i class="fa fa-pencil" aria-hidden="true" (click)="editVal(i_all, refInputval)"></i>
       </li>
       <li class="list-group-item pl-2 text-center font-weight-bold p-5" *ngIf="!showAlltasks.length">
          Item Not Found

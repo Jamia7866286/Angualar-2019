@@ -1,5 +1,6 @@
 import { Component } from "@angular/core"
-import { FormControl, FormGroup, FormBuilder, Validators } from "@angular/forms"
+import {  FormGroup, FormBuilder, Validators } from "@angular/forms"
+import { checkPasswords } from "./passValidator";
 
 @Component({
    selector: "app-sign-up-form",
@@ -9,14 +10,14 @@ import { FormControl, FormGroup, FormBuilder, Validators } from "@angular/forms"
 export class SignUpFormComponent {
    registerDetails: FormGroup
 
-   constructor(private formbuilder: FormBuilder) {
+   constructor(formbuilder: FormBuilder) {
       this.registerDetails = formbuilder.group({
          fname: ["", [Validators.required, Validators.minLength(10)]],
          lname: ["", [Validators.required, Validators.minLength(10)]],
          mail: ["", [Validators.required, Validators.email]],
          mob: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
          pswd: ["", [Validators.required, Validators.minLength(8), Validators.maxLength(15)]],
-         cpswd: ["", [Validators.required, Validators.minLength(8), Validators.maxLength(15)]],
+         cpswd: ["", checkPasswords],
       })
    }
 
@@ -24,6 +25,9 @@ export class SignUpFormComponent {
       console.log(this.registerDetails.controls)
    }
 
+   validateForm(){
+      alert("Data submitted...");
+   }
    // convenience getter for easy access to form fields
    get formfield() {
       return this.registerDetails.controls

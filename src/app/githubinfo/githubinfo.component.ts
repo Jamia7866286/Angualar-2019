@@ -10,20 +10,31 @@ export class GithubinfoComponent {
 
    // Git hub variables
    avatar: any
-   avatar_default = false
-   profileTitle = false
-   profileUrl: any
+   profileTitle: any
    userProfile: string
+   profile_show = false
+   myname: any
+   mypublic_repos = 0
+   myfollowers = 0
+   myfollowing = 0
+   myhtml_url: any
 
-   select(id: any, profileRef:any) {
-      this.gituser.getData(id).subscribe(data => {
+   submit(id: any, profileRef: any) {
+      this.gituser.getData(id).subscribe((data: any) => {
          console.log(data)
-         if (id === data.login) {
-            this.avatar_default = true
+         if (id == data.login) {
             this.avatar = data.avatar_url
             this.profileTitle = id
+            this.myname = data.name
+            this.mypublic_repos = data.public_repos
+            this.myfollowers = data.followers
+            this.myfollowing = data.following
+            this.myhtml_url = data.html_url
+            this.profile_show = true
             this.userProfile = ""
             profileRef.focus()
+         } else {
+            alert("Please enter github username...")
          }
       })
    }

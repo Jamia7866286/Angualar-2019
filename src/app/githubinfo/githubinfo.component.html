@@ -6,7 +6,7 @@
          </div>
       </div>
    </div>
-   <form (submit)="select(userProfile)">
+   <form (submit)="submit(userProfile)">
       <div class="form-group">
          <div class="input-group mb-3 mt-3">
             <input
@@ -15,7 +15,7 @@
                #profileRef
                autofocus
                name="usernames"
-               placeholder="Enter User Name..."
+               placeholder="Enter github username..."
                type="text"
             />
             <div class="input-group-append">
@@ -23,29 +23,30 @@
                   class="btn text-white btn-success rounded-0"
                   id="button-addon2"
                   type="button"
-                  (click)="select(userProfile, profileRef)"
+                  (click)="submit(userProfile, profileRef)"
                >
-                  Submit
+                  Get Details
                </button>
             </div>
          </div>
       </div>
-      <div class="card" style="width:400px">
-         <div class="card-box" [hidden]="avatar_default">
-            <img class="card-img-top" src="https://placeimg.com/640/480/nature" alt="Card image" />
-         </div>
-         <div class="card-box" [hidden]="!avatar_default">
+      <div class="card" style="width:400px" *ngIf="profile_show">
+         <div class="card-box">
             <img class="card-img-top" src="{{ avatar }}" alt="Card image" />
          </div>
          <div class="card-body text-center">
-            <h4 class="card-title" [hidden]="profileTitle">Your Title here</h4>
-            <h4 class="card-title" [hidden]="!profileTitle">{{ profileTitle }}</h4>
-            <p class="card-text">
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cupiditate expedita amet
-               aperiam, aut nulla nesciunt.
-            </p>
-            <a href="{{ profileUrl }}" class="btn btn-primary">See Profile</a>
+            <h5 class="card-title">
+               <i class="fa fa-user" aria-hidden="true"></i> {{ myname }}
+               <small
+                  ><sup> ({{ profileTitle }})</sup></small
+               >
+            </h5>
+            <h5><i class="fa fa-folder" aria-hidden="true"></i> Repositories: {{ mypublic_repos }}</h5>
+            <h5><i class="fa fa-user-plus" aria-hidden="true"></i> Followers: {{ myfollowers }}</h5>
+            <h5><i class="fa fa-tag" aria-hidden="true"></i> Following: {{ myfollowing }}</h5>
+            <a href="{{ myhtml_url }}" class="btn btn-primary mt-3">See Profile</a>
          </div>
       </div>
+      <span class="alert alert-danger m-0 w-100 d-block" *ngIf="!profile_show">Please enter username</span>
    </form>
 </div>

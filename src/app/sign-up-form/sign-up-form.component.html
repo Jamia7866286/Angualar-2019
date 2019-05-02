@@ -159,14 +159,7 @@
                         >
                            Enter minimum 8 character!
                         </p>
-                        <p
-                           *ngIf="
-                              formfield.pswd.invalid && formfield.pswd.dirty && formfield.pswd.errors.maxlength
-                           "
-                           class="alert alert-danger m-0 py-1 px-2"
-                        >
-                           Enter maximum 15 character!
-                        </p>
+                        
                      </div>
                      <div class="form-group">
                         <input
@@ -179,26 +172,27 @@
                         <p
                            *ngIf="
                               formfield.cpswd.invalid &&
-                              formfield.cpswd.dirty &&
-                              formfield.cpswd.errors.minlength
+                              formfield.cpswd.dirty
                            "
                            class="alert alert-danger m-0 py-1 px-2"
                         >
-                           Enter minimum 8 character!
+                           Password not match !
                         </p>
-                        <!-- <p
+                        <p
                            *ngIf="
-                           formfield.value.cpswd !== formfield.value.pswd
+                              formfield.cpswd.valid &&
+                              formfield.cpswd.dirty
                            "
-                           class="alert alert-danger m-0 py-1 px-2"
+                           class="alert alert-success m-0 py-1 px-2"
                         >
-                           Enter maximum 15 character!
-                        </p> -->
+                           Password match !
+                        </p>
+                        
                         <input
                            class="btnRegister"
                            type="submit"
                            value="Register"
-                           [disabled]="!registerDetails.valid"
+                           [disabled]="!registerDetails.valid" (click)="validateForm()"
                         />
                      </div>
 

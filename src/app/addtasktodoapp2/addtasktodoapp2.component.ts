@@ -20,7 +20,8 @@ export class Addtasktodoapp2Component {
    additem(item, refInputval) {
       if (item) {
          this.tasks.push(item)
-         // alert("Thanks, Your task Successfully Add.");
+         // this.showAlltasks = [...this.tasks]
+         this.showAlltasks.push(item)
          setTimeout(function() {
             Swal.fire({
                position: "center",
@@ -42,7 +43,7 @@ export class Addtasktodoapp2Component {
       }
    }
 
-   // Delete item Methods
+   // Delete item Methods using delete icon
    deleteitem(index, refInputval) {
       this.buttonToggle = false
       this.itemval = ""
@@ -86,52 +87,10 @@ export class Addtasktodoapp2Component {
       this.itemval = ""
    }
 
-   // delete-Checked-Task all checked task checkbox
-   deleteCheckedTask(isChecked, index_id) {
-      console.log(isChecked, "hello ", index_id)
-
-      if (isChecked && !this.dltCheckedTaskArray.includes(index_id)) {
-         console.log("Element nither add before")
-         this.dltCheckedTaskArray.push(index_id)
-      } else if (this.dltCheckedTaskArray.includes(index_id)) {
-         this.dltCheckedTaskArray.splice(index_id, 1)
-      }
-      console.log(this.dltCheckedTaskArray)
-   }
-
-   //   delete_selected_task method
-   delete_selected_task(index_id) {
-      //   console.log(index_id)
-      console.log(this.dltCheckedTaskArray.includes(index_id))
-
-      this.showAlltasks = [...this.tasks]
-      if (
-         this.dltCheckedTaskArray.includes(index_id) == this.tasks.includes(index_id) &&
-         this.dltCheckedTaskArray.length
-      ) {
-         Swal.fire({
-            title: "Are you sure?",
-            text: "You want to delete all selected tasks!",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete all!",
-         }).then(result => {
-            if (result.value) {
-               // Your al item Deleted
-               this.tasks.splice(index_id, this.dltCheckedTaskArray.length)
-               this.dltCheckedTaskArray = []
-               Swal.fire("Deleted!", "Your tasks have been deleted.", "success")
-            }
-         })
-      } else {
-         Swal.fire({
-            type: "error",
-            title: "Oops...",
-            text: "Your tasks are not selected!",
-         })
-      }
+   // All tasks method
+   showAllTask() {
+      console.log(this.showAlltasks.length)
+      this.allItemShow = true
    }
 
    // clearAllTasks method
@@ -161,9 +120,49 @@ export class Addtasktodoapp2Component {
       }
    }
 
-   // All tasks method
-   showAllTask() {
-      console.log(this.showAlltasks.length)
-      this.allItemShow = true
+   // delete-Checked-Task all checked task checkbox
+   deleteCheckedTask(isChecked, index_id) {
+      console.log(isChecked, "hello ", index_id)
+
+      if (isChecked && !this.dltCheckedTaskArray.includes(index_id)) {
+         console.log("Element nither add before")
+         this.dltCheckedTaskArray.push(index_id)
+      } else if (this.dltCheckedTaskArray.includes(index_id)) {
+         this.dltCheckedTaskArray.splice(index_id, 1)
+      }
+      console.log(this.dltCheckedTaskArray)
+   }
+
+   //   delete_selected_task method
+   delete_selected_task(index_id) {
+      //   console.log(index_id)
+      console.log(this.dltCheckedTaskArray.includes(index_id))
+      if (
+         this.dltCheckedTaskArray.includes(index_id) == this.tasks.includes(index_id) &&
+         this.dltCheckedTaskArray.length
+      ) {
+         Swal.fire({
+            title: "Are you sure?",
+            text: "You want to delete all selected tasks!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete all!",
+         }).then(result => {
+            if (result.value) {
+               // Your al item Deleted
+               this.tasks.splice(index_id, this.dltCheckedTaskArray.length)
+               this.dltCheckedTaskArray = []
+               Swal.fire("Deleted!", "Your tasks have been deleted.", "success")
+            }
+         })
+      } else {
+         Swal.fire({
+            type: "error",
+            title: "Oops...",
+            text: "Your tasks are not selected!",
+         })
+      }
    }
 }
