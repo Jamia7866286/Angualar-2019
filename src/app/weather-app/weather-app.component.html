@@ -1,3 +1,42 @@
-<p>
-  weather-app works!
-</p>
+<div class="github-details">
+  <div class="row">
+     <div class="col-md-12">
+        <div class="todo-heading bg-primary text-white  text-center">
+           <h2 class="font-weight-bold m-0 p-3">Welcome to Weather App</h2>
+        </div>
+     </div>
+  </div>
+  <form>
+     <div class="form-group">
+        <div class="input-group mb-3 mt-3">
+           <input
+              class="form-control rounded-0"
+              autofocus
+              name="usernames"
+              placeholder="Enter pin code..."
+              type="text"
+              [(ngModel)]="weatherInput"
+           />
+           <div class="input-group-append">
+              <button
+                 class="btn text-white btn-success rounded-0"
+                 id="button-addon2"
+                 type="button" (click)="submitData(weatherInput)"
+              >
+                 Get Details
+              </button>
+           </div>
+        </div>
+     </div>
+     <!-- <div class="card" style="width:400px">
+        <div class="card-box">
+           <img class="card-img-top" src="" alt="Card image" />
+        </div>
+        <div class="card-body text-center">
+           <h5 class="card-title">dfsd
+           </h5>
+        </div>
+     </div> -->
+     <span class="alert alert-danger m-0 w-100 d-block">Please enter pin code...</span>
+  </form>
+</div>

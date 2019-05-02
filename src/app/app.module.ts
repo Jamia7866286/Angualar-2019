@@ -7,7 +7,6 @@ import { CalculatorComponent } from "./calculator/calculator.component"
 import { NavbarComponent } from "./navbar/navbar.component"
 import { HeroesComponent } from "./heroes/heroes.component"
 import { HeroDetailComponent } from "./hero-detail/hero-detail.component"
-import { TodoappComponent } from "./todoapp/todoapp.component"
 import { Addtasktodoapp2Component } from "./addtasktodoapp2/addtasktodoapp2.component"
 import { SignUpFormComponent } from "./sign-up-form/sign-up-form.component"
 import { LogInFormComponent } from "./log-in-form/log-in-form.component"
@@ -22,7 +21,6 @@ import { WeatherAppComponent } from "./weather-app/weather-app.component"
       NavbarComponent,
       HeroesComponent,
       HeroDetailComponent,
-      TodoappComponent,
       Addtasktodoapp2Component,
       SignUpFormComponent,
       LogInFormComponent,

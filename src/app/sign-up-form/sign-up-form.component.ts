@@ -17,7 +17,7 @@ export class SignUpFormComponent {
          mail: ["", [Validators.required, Validators.email]],
          mob: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
          pswd: ["", [Validators.required, Validators.minLength(8), Validators.maxLength(15)]],
-         cpswd: ["", checkPasswords],
+         cpswd: ["", [checkPasswords,Validators.required]],
       })
    }
 
