@@ -28,15 +28,26 @@
            </div>
         </div>
      </div>
-     <!-- <div class="card" style="width:400px">
-        <div class="card-box">
-           <img class="card-img-top" src="" alt="Card image" />
-        </div>
-        <div class="card-body text-center">
-           <h5 class="card-title">dfsd
-           </h5>
-        </div>
-     </div> -->
-     <span class="alert alert-danger m-0 w-100 d-block">Please enter pin code...</span>
   </form>
+</div>
+
+<div class="gitdata">
+      <span class="alert alert-danger mx-auto mt-3 w-50 d-block" *ngIf="!datacontentShow">Please enter pin code...</span>
+      <div class="weather-content-inner shadow mx-5 mb-3 mt-5 border" *ngIf="datacontentShow">
+         <div class="card-header d-flex">
+            <img src="" alt="not here">
+            <h5>Country</h5>
+         </div>
+         <div class="cards-temp p-3">
+            <div class="card" style="width:200px" *ngFor="let i of datafetch;">
+               <div class="card-box">
+                  <img class="card-img-top" src="{{i.weather.icon}}" alt="Card image" />
+               </div>
+               <div class="card-body text-center">
+                  <h6 class="card-title m-0">{{i.dt_txt}}
+                  </h6>
+               </div>
+            </div>
+         </div>
+      </div>
 </div>
