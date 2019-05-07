@@ -39,9 +39,9 @@
             <h5>Country</h5>
          </div>
          <div class="cards-temp p-3">
-            <div class="card" style="width:200px" *ngFor="let i of datafetch;">
+            <div class="card" style="width:130px" *ngFor="let i of datafetch;">
                <div class="card-box">
-                  <img class="card-img-top" src="{{i.weather.icon}}" alt="Card image" />
+                  <img class="card-img-top" src="http://openweathermap.org/img/w/{{i.weather[0].icon}}.png" alt="{{i.weather[0].icon}}" width="30"/>
                </div>
                <div class="card-body text-center">
                   <h6 class="card-title m-0">{{i.dt_txt}}

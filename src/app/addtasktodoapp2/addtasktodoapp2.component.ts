@@ -14,7 +14,6 @@ export class Addtasktodoapp2Component {
    currentIndex
    dltCheckedTaskArray = []
    showAlltasks = []
-   allItemShow = false
 
    // Add item Methods
    additem(item, refInputval) {
@@ -88,10 +87,10 @@ export class Addtasktodoapp2Component {
    }
 
    // All tasks method
-   showAllTask() {
-      console.log(this.showAlltasks.length)
-      this.allItemShow = true
-   }
+   // showAllTask() {
+   //    console.log(this.showAlltasks.length)
+   //    this.allItemShow = true
+   // }
 
    // clearAllTasks method
    clearAllTasks() {

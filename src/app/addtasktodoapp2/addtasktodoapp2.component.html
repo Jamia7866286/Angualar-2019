@@ -34,7 +34,7 @@
       </div>
    </div>
 
-   <ul class="list-group" *ngIf="!allItemShow">
+   <ul class="list-group">
       <li class="list-group-item pl-2" *ngFor="let item of tasks; let i = index">
          <div class="custom-control custom-checkbox">
             <input
@@ -49,25 +49,6 @@
          <i class="fa fa-pencil" aria-hidden="true" (click)="editVal(i, refInputval)"></i>
       </li>
       <li class="list-group-item pl-2 text-center font-weight-bold p-5" *ngIf="!tasks.length">
-         Item Not Found
-      </li>
-   </ul>
-
-   <ul class="list-group" *ngIf="allItemShow">
-      <li class="list-group-item pl-2" *ngFor="let item_All of showAlltasks; let i_all = index">
-         <div class="custom-control custom-checkbox">
-            <input
-               type="checkbox"
-               class="custom-control-input"
-               (change)="deleteCheckedTask($event.target.checked, i_all)"
-               id="{{ i_all }}"
-            />
-            <label class="custom-control-label" for="{{ i_all }}">{{ item_All }}</label>
-         </div>
-         <i class="fa fa-trash-o" aria-hidden="true" (click)="deleteitem(i_all, refInputval)"></i>
-         <i class="fa fa-pencil" aria-hidden="true" (click)="editVal(i_all, refInputval)"></i>
-      </li>
-      <li class="list-group-item pl-2 text-center font-weight-bold p-5" *ngIf="!showAlltasks.length">
          Item Not Found
       </li>
    </ul>

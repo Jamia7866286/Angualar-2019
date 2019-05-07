@@ -9,7 +9,7 @@ import { checkPasswords } from "./passValidator";
 })
 export class SignUpFormComponent {
    registerDetails: FormGroup
-
+   choose: any = ''
    constructor(formbuilder: FormBuilder) {
       this.registerDetails = formbuilder.group({
          fname: ["", [Validators.required, Validators.minLength(10)]],
@@ -50,4 +50,9 @@ export class SignUpFormComponent {
    //  get cpswd() {
    //     return this.registerDetails.get("cpswd")
    //  }
+
+
+   setvalues(val: any){
+      this.choose = val.target.value;
+   }
 }
