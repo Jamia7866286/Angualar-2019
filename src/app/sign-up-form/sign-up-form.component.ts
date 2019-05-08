@@ -82,4 +82,8 @@ export class SignUpFormComponent {
       this.selectCountry = countryVal;
       this.countryChange = false;
     }
+    onEnter(inpvalue){
+      this.selectCountry = inpvalue;
+      this.countryChange = false;
+    }
    }
