@@ -2,6 +2,7 @@ import { Component } from "@angular/core"
 import {  FormGroup, FormBuilder, Validators } from "@angular/forms"
 import { checkPasswords } from "./passValidator";
 
+
 @Component({
    selector: "app-sign-up-form",
    templateUrl: "./sign-up-form.component.html",
@@ -18,6 +19,9 @@ export class SignUpFormComponent {
          mob: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
          pswd: ["", [Validators.required, Validators.minLength(8), Validators.maxLength(15)]],
          cpswd: ["", [checkPasswords,Validators.required]],
+         birthcountry: ["", [Validators.required, Validators.minLength(10)]],
+         birthdate :  ["", [Validators.required, Validators.minLength(10)]],
+         birthplace :  ["", [Validators.required, Validators.minLength(10)]]
       })
    }
 
@@ -55,4 +59,18 @@ export class SignUpFormComponent {
    setvalues(val: any){
       this.choose = val.target.value;
    }
+
+   selectCountry: any
+   country = [
+      { country: 'India' },
+      { country: 'USA'},
+      { country: 'UK'},
+      { country: 'Canada' },
+      { country: 'Russia'},
+      { country: 'China'},
+      { country: 'Germany'},
+      { country: 'Hong Kong'},
+      { country: 'South Africa'},
+      { country: 'Sri Lanka'}
+    ];
 }

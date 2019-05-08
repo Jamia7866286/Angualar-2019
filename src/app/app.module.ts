@@ -14,6 +14,8 @@ import { GithubinfoComponent } from "./githubinfo/githubinfo.component"
 import { HttpClientModule } from "@angular/common/http"
 import { GithubdataService } from "./githubdata.service"
 import { WeatherAppComponent } from "./weather-app/weather-app.component"
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+// search module
 @NgModule({
    declarations: [
       AppComponent,
@@ -34,6 +36,7 @@ import { WeatherAppComponent } from "./weather-app/weather-app.component"
       ReactiveFormsModule,
       HttpClientModule,
       AppRoutingModule,
+      Ng2SearchPipeModule
    ],
    providers: [GithubdataService],
    bootstrap: [AppComponent],
