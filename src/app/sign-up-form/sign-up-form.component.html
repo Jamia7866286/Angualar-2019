@@ -106,9 +106,9 @@
                         </select>
                     </div>
                     <div class="form-group security-query" [ngSwitch]="choose">
-                        <input type="text" class="form-control" autocomplete="off" placeholder="Birth Country *" name="birthcountry" formControlName="birthcountry" *ngSwitchCase="'birthcountry'" [(ngModel)]="selectCountry" />
-                        <ul class="list-inline">
-                            <li *ngFor="let item of country | filter:selectCountry">{{item.country}}</li>
+                        <input type="text" class="form-control" autocomplete="off" placeholder="Birth Country *" name="birthcountry" formControlName="birthcountry" *ngSwitchCase="'birthcountry'" [(ngModel)]="selectCountry" (click)="changeCountry()" />
+                        <ul class="list-inline" *ngIf="countryChange">
+                            <li *ngFor="let item of country | filter:selectCountry;let i = index;" (click)="_selectcountry(item.country,i)">{{item.country}}</li>
                         </ul>
                         <input type="date" class="form-control" name="birthcountry" formControlName="birthdate" *ngSwitchCase="'birthDate'" />
                         <input type="text" class="form-control" placeholder="Birth Place *" name="birthplace" formControlName="birthplace" *ngSwitchCase="'birthPlace'" />

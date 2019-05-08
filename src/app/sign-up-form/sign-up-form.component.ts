@@ -19,7 +19,7 @@ export class SignUpFormComponent {
          mob: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
          pswd: ["", [Validators.required, Validators.minLength(8), Validators.maxLength(15)]],
          cpswd: ["", [checkPasswords,Validators.required]],
-         birthcountry: ["", [Validators.required, Validators.minLength(10)]],
+         birthcountry: ["", [Validators.required, Validators.minLength(4)]],
          birthdate :  ["", [Validators.required, Validators.minLength(10)]],
          birthplace :  ["", [Validators.required, Validators.minLength(10)]]
       })
@@ -59,7 +59,7 @@ export class SignUpFormComponent {
    setvalues(val: any){
       this.choose = val.target.value;
    }
-
+   countryChange = false
    selectCountry: any
    country = [
       { country: 'India' },
@@ -73,4 +73,13 @@ export class SignUpFormComponent {
       { country: 'South Africa'},
       { country: 'Sri Lanka'}
     ];
-}
+   //  input click
+    changeCountry(){
+      this.countryChange = true;
+    }
+
+    _selectcountry(countryVal,i):any{
+      this.selectCountry = countryVal;
+      this.countryChange = false;
+    }
+   }
