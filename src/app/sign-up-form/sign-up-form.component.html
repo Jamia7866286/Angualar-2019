@@ -8,8 +8,8 @@
         </div>
         <div class="col-md-9 register-right">
             <form [formGroup]="registerDetails" class="row register-form" (ngSubmit)="postData()">
-                <div class="col-md-6">
-                    <div class="form-group">
+                <ul class="list-inline form-data">
+                    <li class="form-group">
                         <input type="text" class="form-control" placeholder="First Name *" name="fname" formControlName="fname" />
                         <p *ngIf="
                            formfield.fname.invalid &&
@@ -18,8 +18,8 @@
                         " class="alert alert-danger m-0 py-1 px-2">
                             Enter minimum 5 character!
                         </p>
-                    </div>
-                    <div class="form-group">
+                    </li>
+                    <li class="form-group">
                         <input type="text" class="form-control" placeholder="Last Name *" name="lname" formControlName="lname" />
                         <p *ngIf="
                            formfield.lname.invalid &&
@@ -28,14 +28,14 @@
                         " class="alert alert-danger m-0 py-1 px-2">
                             Enter minimum 5 character!
                         </p>
-                    </div>
-                    <div class="form-group">
+                    </li>
+                    <li class="form-group">
                         <input type="email" class="form-control" placeholder="Your Email *" name="email" formControlName="mail" />
                         <p *ngIf="formfield.mail.invalid && formfield.mail.dirty && formfield.mail.errors.email" class="alert alert-danger m-0 py-1 px-2">
                             Please Enter email like: examle@gmail.com
                         </p>
-                    </div>
-                    <!-- <div class="form-group">
+                    </li>
+                    <!-- <li class="form-group">
                               <div class="maxl">
                                  <label class="radio inline">
                                        <input
@@ -55,10 +55,8 @@
                                        <span>Female </span>
                                  </label>
                               </div>
-                           </div> -->
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
+                            </li> -->
+                    <li class="form-group">
                         <input type="text" required autocomplete="off" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" name="phone" formControlName="mob" />
 
                         <p *ngIf="
@@ -71,8 +69,8 @@
                         " class="alert alert-danger m-0 py-1 px-2">
                             max 8 digit required.
                         </p>
-                    </div>
-                    <div class="form-group">
+                    </li>
+                    <li class="form-group">
                         <input type="password" class="form-control" placeholder="Password *" name="pswd" formControlName="pswd" />
                         <p *ngIf="
                            formfield.pswd.invalid && formfield.pswd.dirty && formfield.pswd.errors.minlength
@@ -80,8 +78,8 @@
                             Enter minimum 5 character!
                         </p>
 
-                    </div>
-                    <div class="form-group">
+                    </li>
+                    <li class="form-group">
                         <input type="password" class="form-control" placeholder="Confirm Password *" name="cpswd" formControlName="cpswd" />
                         <p *ngIf="
                            formfield.cpswd.invalid &&
@@ -95,17 +93,16 @@
                         " class="alert alert-success m-0 py-1 px-2">
                             Password match !
                         </p>
-                    </div>
-
-                    <div class="form-group">
+                    </li>
+                    <li class="form-group">
                         <select class="form-control" (change)="setvalues($event)">
                            <option class="hidden" value="" selected disabled>Please select your Sequrity Question</option>
                            <option value="birthcountry">What is your Birth country</option>
                            <option value="birthDate">What is your Birth date?</option>
                            <option value="birthPlace">What is Your Birth place </option>
                         </select>
-                    </div>
-                    <div class="form-group security-query" [ngSwitch]="choose">
+                    </li>
+                    <li class="form-group security-query" [ngSwitch]="choose">
 
                         <input type="text" class="form-control" [typeahead]="states" adaptivePosition="true" placeholder="Birth Country *" autocomplete="off" name="birthcountry" formControlName="birthcountry" *ngSwitchCase="'birthcountry'" />
 
@@ -114,11 +111,11 @@
 
                         <input type="text" class="form-control" placeholder="Birth Place *" name="birthplace" formControlName="birthplace" *ngSwitchCase="'birthPlace'" />
 
-                    </div>
-                </div>
-
-                <input class="btnRegister" type="submit" value="Register" [disabled]="!registerDetails.valid" (click)="validateForm()" />
-
+                    </li>
+                    <li>
+                        <input class="btnRegister" type="submit" value="Register" [disabled]="!registerDetails.valid" (click)="validateForm()" />
+                    </li>
+                </ul>
             </form>
         </div>
     </div>
