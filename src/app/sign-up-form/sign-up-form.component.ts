@@ -1,6 +1,8 @@
 import { Component } from "@angular/core"
 import {  FormGroup, FormBuilder, Validators } from "@angular/forms"
 import { checkPasswords } from "./passValidator";
+import Swal from 'sweetalert2';
+
 
 
 @Component({
@@ -18,9 +20,9 @@ export class SignUpFormComponent {
          mob: ["", [Validators.required, Validators.minLength(5), Validators.maxLength(8)]],
          pswd: ["", [Validators.required, Validators.minLength(5), Validators.maxLength(8)]],
          cpswd: ["", [checkPasswords,Validators.required]],
-         birthcountry: ["", [Validators.required, Validators.minLength(5)]],
-         birthdate :  ["", [Validators.required]],
-         birthplace :  ["", [Validators.required, Validators.minLength(5)]]
+         birthcountry: ["", [ Validators.minLength(5)]],
+         birthdate :  [""],
+         birthplace :  [""]
       })
    }
 
@@ -29,7 +31,13 @@ export class SignUpFormComponent {
    }
 
    validateForm(){
-      alert("Data submitted...");
+      Swal.fire({
+         position: "center",
+         type: "success",
+         title: "Your Data submitted...",
+         showConfirmButton: false,
+         timer: 1300,
+      })
    }
    // convenience getter for easy access to form fields
    get formfield() {

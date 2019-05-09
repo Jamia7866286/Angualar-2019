@@ -9,7 +9,7 @@
         <div class="col-md-9 register-right">
             <form [formGroup]="registerDetails" class="row register-form" (ngSubmit)="postData()">
                 <ul class="list-inline form-data">
-                    <li class="form-group">
+                    <li class="">
                         <input type="text" class="form-control" placeholder="First Name *" name="fname" formControlName="fname" />
                         <p *ngIf="
                            formfield.fname.invalid &&
@@ -19,7 +19,7 @@
                             Enter minimum 5 character!
                         </p>
                     </li>
-                    <li class="form-group">
+                    <li class="">
                         <input type="text" class="form-control" placeholder="Last Name *" name="lname" formControlName="lname" />
                         <p *ngIf="
                            formfield.lname.invalid &&
@@ -29,13 +29,13 @@
                             Enter minimum 5 character!
                         </p>
                     </li>
-                    <li class="form-group">
+                    <li class="">
                         <input type="email" class="form-control" placeholder="Your Email *" name="email" formControlName="mail" />
                         <p *ngIf="formfield.mail.invalid && formfield.mail.dirty && formfield.mail.errors.email" class="alert alert-danger m-0 py-1 px-2">
                             Please Enter email like: examle@gmail.com
                         </p>
                     </li>
-                    <!-- <li class="form-group">
+                    <!-- <li class="">
                               <div class="maxl">
                                  <label class="radio inline">
                                        <input
@@ -56,7 +56,7 @@
                                  </label>
                               </div>
                             </li> -->
-                    <li class="form-group">
+                    <li class="">
                         <input type="text" required autocomplete="off" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" name="phone" formControlName="mob" />
 
                         <p *ngIf="
@@ -70,7 +70,7 @@
                             max 8 digit required.
                         </p>
                     </li>
-                    <li class="form-group">
+                    <li class="">
                         <input type="password" class="form-control" placeholder="Password *" name="pswd" formControlName="pswd" />
                         <p *ngIf="
                            formfield.pswd.invalid && formfield.pswd.dirty && formfield.pswd.errors.minlength
@@ -79,7 +79,7 @@
                         </p>
 
                     </li>
-                    <li class="form-group">
+                    <li class="">
                         <input type="password" class="form-control" placeholder="Confirm Password *" name="cpswd" formControlName="cpswd" />
                         <p *ngIf="
                            formfield.cpswd.invalid &&
@@ -87,14 +87,14 @@
                         " class="alert alert-danger m-0 py-1 px-2">
                             Password not match !
                         </p>
-                        <p *ngIf="
+                        <!-- <p *ngIf="
                            formfield.cpswd.valid &&
                            formfield.cpswd.dirty
-                        " class="alert alert-success m-0 py-1 px-2">
+                        " class="alert alert-success m-0 py-1 px-2 fade in">
                             Password match !
-                        </p>
+                        </p> -->
                     </li>
-                    <li class="form-group">
+                    <li class="">
                         <select class="form-control" (change)="setvalues($event)">
                            <option class="hidden" value="" selected disabled>Please select your Sequrity Question</option>
                            <option value="birthcountry">What is your Birth country</option>
