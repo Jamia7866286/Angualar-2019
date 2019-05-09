@@ -10,18 +10,17 @@ import { checkPasswords } from "./passValidator";
 })
 export class SignUpFormComponent {
    registerDetails: FormGroup
-   choose: any = ''
    constructor(formbuilder: FormBuilder) {
       this.registerDetails = formbuilder.group({
-         fname: ["", [Validators.required, Validators.minLength(10)]],
-         lname: ["", [Validators.required, Validators.minLength(10)]],
+         fname: ["", [Validators.required, Validators.minLength(5)]],
+         lname: ["", [Validators.required, Validators.minLength(5)]],
          mail: ["", [Validators.required, Validators.email]],
-         mob: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-         pswd: ["", [Validators.required, Validators.minLength(8), Validators.maxLength(15)]],
+         mob: ["", [Validators.required, Validators.minLength(5), Validators.maxLength(8)]],
+         pswd: ["", [Validators.required, Validators.minLength(5), Validators.maxLength(8)]],
          cpswd: ["", [checkPasswords,Validators.required]],
-         birthcountry: ["", [Validators.required, Validators.minLength(4)]],
-         birthdate :  ["", [Validators.required, Validators.minLength(10)]],
-         birthplace :  ["", [Validators.required, Validators.minLength(10)]]
+         birthcountry: ["", [Validators.required, Validators.minLength(5)]],
+         birthdate :  ["", [Validators.required]],
+         birthplace :  ["", [Validators.required, Validators.minLength(5)]]
       })
    }
 
@@ -45,45 +44,27 @@ export class SignUpFormComponent {
    //  get mail() {
    //     return this.registerDetails.get("mail")
    //  }
-   //  get mob() {
-   //     return this.registerDetails.get("mob")
-   //  }
-   //  get pswd() {
-   //     return this.registerDetails.get("pswd")
-   //  }
-   //  get cpswd() {
-   //     return this.registerDetails.get("cpswd")
-   //  }
 
-
+   choose: any = ''
    setvalues(val: any){
       this.choose = val.target.value;
    }
-   countryChange = false
-   selectCountry: any
-   country = [
-      { country: 'India' },
-      { country: 'USA'},
-      { country: 'UK'},
-      { country: 'Canada' },
-      { country: 'Russia'},
-      { country: 'China'},
-      { country: 'Germany'},
-      { country: 'Hong Kong'},
-      { country: 'South Africa'},
-      { country: 'Sri Lanka'}
+    states: string[] = [
+      'India',
+      'Indonesia',
+      'USA',
+      'UK',
+      'Canada',
+      'Russia',
+      'China',
+      'Germany',
+      'Hong Kong',
+      'South Africa',
+      'Sri Lanka'
     ];
-   //  input click
-    changeCountry(){
-      this.countryChange = true;
-    }
 
-    _selectcountry(countryVal,i):any{
-      this.selectCountry = countryVal;
-      this.countryChange = false;
-    }
-    onEnter(inpvalue){
-      this.selectCountry = inpvalue;
-      this.countryChange = false;
-    }
+
+    public minDate: Date = new Date ("05/07/2017");
+    public maxDate: Date = new Date ("05/27/2017");
+    public value: Date = new Date ("05/16/2017");
    }

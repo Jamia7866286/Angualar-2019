@@ -14,7 +14,9 @@ import { GithubinfoComponent } from "./githubinfo/githubinfo.component"
 import { HttpClientModule } from "@angular/common/http"
 import { GithubdataService } from "./githubdata.service"
 import { WeatherAppComponent } from "./weather-app/weather-app.component"
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+// import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
 // search module
 @NgModule({
    declarations: [
@@ -36,7 +38,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
       ReactiveFormsModule,
       HttpClientModule,
       AppRoutingModule,
-      Ng2SearchPipeModule
+      DatePickerModule,
+      // Ng2SearchPipeModule,
+      TypeaheadModule.forRoot(),
    ],
    providers: [GithubdataService],
    bootstrap: [AppComponent],
