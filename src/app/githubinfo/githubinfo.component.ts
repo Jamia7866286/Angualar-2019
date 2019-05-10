@@ -18,6 +18,7 @@ export class GithubinfoComponent {
    myfollowers = 0
    myfollowing = 0
    myhtml_url: any
+   loader = true
 
    submit(id: any, profileRef: any) {
       this.gituser.getData(id).subscribe((data: any) => {
@@ -31,10 +32,12 @@ export class GithubinfoComponent {
             this.myfollowing = data.following
             this.myhtml_url = data.html_url
             this.profile_show = true
+            this.loader = false;
             this.userProfile = ""
             profileRef.focus()
-         } else {
-            alert("Please enter github username...")
+         }
+         else {
+            alert("Please enter Valid github username...")
          }
       })
    }
