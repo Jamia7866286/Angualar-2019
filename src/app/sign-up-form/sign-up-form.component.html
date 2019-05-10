@@ -1,10 +1,10 @@
-<div class="container register">
+<div *ngIf="!this.check" class="container register">
     <div class="row">
         <div class="col-md-3 register-left">
             <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
             <h3>Welcome</h3>
             <p>You are 30 seconds away from earning your own money!</p>
-            <input type="submit" name="" value="Login" /><br />
+            <input (click)="login($event)" type="submit" name="" value="Login" /><br />
         </div>
         <div class="col-md-9 register-right">
             <form [formGroup]="registerDetails" class="row register-form" (ngSubmit)="postData()">
@@ -91,7 +91,7 @@
                            formfield.cpswd.valid &&
                            formfield.cpswd.dirty
                         " class="alert alert-success m-0 py-1 px-2 fade in">
-                            Password match !
+                            Password match !f
                         </p> -->
                     </li>
                     <li class="">
@@ -120,3 +120,6 @@
         </div>
     </div>
 </div>
+
+<!-- Login form -->
+<app-login *ngIf="this.check"></app-login>

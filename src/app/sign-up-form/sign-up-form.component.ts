@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class SignUpFormComponent {
    registerDetails: FormGroup
+    check = false;
    constructor(formbuilder: FormBuilder) {
       this.registerDetails = formbuilder.group({
          fname: ["", [Validators.required, Validators.minLength(5)]],
@@ -75,4 +76,11 @@ export class SignUpFormComponent {
     public minDate: Date = new Date ("05/07/2017");
     public maxDate: Date = new Date ("05/27/2017");
     public value: Date = new Date ("05/16/2017");
+
+
+   //  Login form content
+   login(e){
+      this.check = true;
+     sessionStorage.setItem('check', String(this.check));
+   }
    }
