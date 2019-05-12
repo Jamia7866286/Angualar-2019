@@ -1,9 +1,7 @@
 import { Component } from "@angular/core"
-import {  FormGroup, FormBuilder, Validators } from "@angular/forms"
-import { checkPasswords } from "./passValidator";
-import Swal from 'sweetalert2';
-
-
+import { FormGroup, FormBuilder, Validators } from "@angular/forms"
+import { checkPasswords } from "./passValidator"
+import Swal from "sweetalert2"
 
 @Component({
    selector: "app-sign-up-form",
@@ -12,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class SignUpFormComponent {
    registerDetails: FormGroup
-    check = false;
+   check = true
    constructor(formbuilder: FormBuilder) {
       this.registerDetails = formbuilder.group({
          fname: ["", [Validators.required, Validators.minLength(5)]],
@@ -20,10 +18,10 @@ export class SignUpFormComponent {
          mail: ["", [Validators.required, Validators.email]],
          mob: ["", [Validators.required, Validators.minLength(5), Validators.maxLength(8)]],
          pswd: ["", [Validators.required, Validators.minLength(5), Validators.maxLength(8)]],
-         cpswd: ["", [checkPasswords,Validators.required]],
-         birthcountry: ["", [ Validators.minLength(5)]],
-         birthdate :  [""],
-         birthplace :  [""]
+         cpswd: ["", [checkPasswords, Validators.required]],
+         birthcountry: ["", [Validators.minLength(5)]],
+         birthdate: [""],
+         birthplace: [""],
       })
    }
 
@@ -31,7 +29,7 @@ export class SignUpFormComponent {
       console.log(this.registerDetails.controls)
    }
 
-   validateForm(){
+   validateForm() {
       Swal.fire({
          position: "center",
          type: "success",
@@ -54,33 +52,31 @@ export class SignUpFormComponent {
    //     return this.registerDetails.get("mail")
    //  }
 
-   choose: any = ''
-   setvalues(val: any){
-      this.choose = val.target.value;
+   choose: any = ""
+   setvalues(val: any) {
+      this.choose = val.target.value
    }
-    states: string[] = [
-      'India',
-      'Indonesia',
-      'USA',
-      'UK',
-      'Canada',
-      'Russia',
-      'China',
-      'Germany',
-      'Hong Kong',
-      'South Africa',
-      'Sri Lanka'
-    ];
+   states: string[] = [
+      "India",
+      "Indonesia",
+      "USA",
+      "UK",
+      "Canada",
+      "Russia",
+      "China",
+      "Germany",
+      "Hong Kong",
+      "South Africa",
+      "Sri Lanka",
+   ]
 
-
-    public minDate: Date = new Date ("05/07/2017");
-    public maxDate: Date = new Date ("05/27/2017");
-    public value: Date = new Date ("05/16/2017");
-
+   public minDate: Date = new Date("05/07/2017")
+   public maxDate: Date = new Date("05/27/2017")
+   public value: Date = new Date("05/16/2017")
 
    //  Login form content
-   login(e){
-      this.check = true;
-     sessionStorage.setItem('check', String(this.check));
+   login(e) {
+      this.check = true
+      sessionStorage.setItem("check", String(this.check)) // this part is not in use now
    }
-   }
+}
