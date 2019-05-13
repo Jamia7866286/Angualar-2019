@@ -19,7 +19,7 @@ export class SignUpFormComponent {
          mob: ["", [Validators.required, Validators.minLength(5), Validators.maxLength(8)]],
          pswd: ["", [Validators.required, Validators.minLength(5), Validators.maxLength(8)]],
          cpswd: ["", [checkPasswords, Validators.required]],
-         birthcountry: ["", [Validators.minLength(5)]],
+         birthcountry: ["", [Validators.minLength(2)]],
          birthdate: [""],
          birthplace: [""],
       })
@@ -70,8 +70,8 @@ export class SignUpFormComponent {
       "Sri Lanka",
    ]
 
-   public minDate: Date = new Date("05/07/2017")
-   public maxDate: Date = new Date("05/27/2017")
+   public minDate: Date = new Date("01/01/2000")
+   public maxDate: Date = new Date("01/01/2030")
    public value: Date = new Date("05/16/2017")
 
    //  Login form content
