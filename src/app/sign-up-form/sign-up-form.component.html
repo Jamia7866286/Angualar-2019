@@ -1,3 +1,4 @@
+
 <div *ngIf="!this.check" class="container register">
     <div class="row">
         <div class="col-md-3 register-left">
@@ -121,5 +122,7 @@
     </div>
 </div>
 
+{{message}}
+
 <!-- Login form -->
-<app-login *ngIf="this.check"></app-login>
+<app-login (childEvent)="this.check = $event" [parentData]="check" *ngIf="this.check"></app-login>

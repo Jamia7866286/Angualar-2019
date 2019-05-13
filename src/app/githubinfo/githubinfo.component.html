@@ -27,14 +27,14 @@
                         <i class="fa fa-user" aria-hidden="true"></i> {{ myname }}
                         <small><sup> ({{ profileTitle }})</sup></small
                   >
-               </h5>
-               <h5><i class="fa fa-folder" aria-hidden="true"></i> Repositories: {{ mypublic_repos }}</h5>
-               <h5><i class="fa fa-user-plus" aria-hidden="true"></i> Followers: {{ myfollowers }}</h5>
-               <h5><i class="fa fa-tag" aria-hidden="true"></i> Following: {{ myfollowing }}</h5>
-               <a href="{{ myhtml_url }}" class="btn btn-primary mt-3">See Profile</a>
+                    </h5>
+                    <h5><i class="fa fa-folder" aria-hidden="true"></i> Repositories: {{ mypublic_repos }}</h5>
+                    <h5><i class="fa fa-user-plus" aria-hidden="true"></i> Followers: {{ myfollowers }}</h5>
+                    <h5><i class="fa fa-tag" aria-hidden="true"></i> Following: {{ myfollowing }}</h5>
+                    <a href="{{ myhtml_url }}" class="btn btn-primary mt-3">See Profile</a>
+                </div>
             </div>
-         </div>
-         <div class="loader" *ngIf="loader">Loading...</div>
+            <div class="loader" *ngIf="loader">Loading...</div>
       </div>
       <span class="alert alert-danger m-0 w-100 d-block" *ngIf="!profile_show">Please enter username</span>
    </form>
