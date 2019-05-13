@@ -15,7 +15,7 @@ export class WeatherAppComponent {
    datafetch: any
    country_flag: any
    city_name: any
-   loader = false;
+   loader: boolean = false;
    arr: any = []
    submitData(pin: any) {
       this.loader = true;
