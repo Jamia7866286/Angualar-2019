@@ -10,7 +10,7 @@ import Swal from "sweetalert2"
 })
 export class SignUpFormComponent {
    registerDetails: FormGroup
-   check = true
+   check = false
    constructor(formbuilder: FormBuilder) {
       this.registerDetails = formbuilder.group({
          fname: ["", [Validators.required, Validators.minLength(5)]],
@@ -75,8 +75,7 @@ export class SignUpFormComponent {
    public value: Date = new Date("05/16/2017")
 
    //  Login form content
-   login(e) {
+   login() {
       this.check = true
-      sessionStorage.setItem("check", String(this.check)) // this part is not in use now
    }
 }

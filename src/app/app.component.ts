@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { HeroesComponent } from './heroes/heroes.component';
-import { Addtasktodoapp2Component } from './addtasktodoapp2/addtasktodoapp2.component';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 
 @Component({
@@ -10,4 +9,11 @@ import { Addtasktodoapp2Component } from './addtasktodoapp2/addtasktodoapp2.comp
 })
 export class AppComponent {
   title = 'my-app1';
+  courses:any[];
+  constructor(db:AngularFireDatabase){
+      db.list('/courses').valueChanges().subscribe( (courses: any) =>{
+      this.courses = courses;
+      console.log(this.courses);
+    });
+  }
 }
