@@ -9,6 +9,7 @@
 .weather-content-inner {
 	overflow: hidden;
 	position: relative;
+	min-height: 230px;
 }
 // Loader
 .loader {
@@ -18,13 +19,14 @@
 	width: 1em;
 	height: 1em;
 	border-radius: 50%;
-	margin: 72px auto;
 	position: absolute;
+	left: 50%;
+    top: 29%;
 	-webkit-transform: translateZ(0);
 	-ms-transform: translateZ(0);
 	transform: translateZ(0);
-	-webkit-animation: load6 1s infinite ease, round 1s infinite ease;
-	animation: load6 1s infinite ease, round 1s infinite ease;
+	-webkit-animation: load6 1.3s infinite ease, round 1.3s infinite ease;
+	animation: load6 1.3s infinite ease, round 1.3s infinite ease;
   }
   @-webkit-keyframes load6 {
 	0% {

@@ -23,24 +23,27 @@
 <div class="gitdata">
     <span class="alert alert-danger mx-auto mt-3 w-50 d-block" *ngIf="!datacontentShow">Please enter pin code...</span
    >
-   <!-- <div class="loader"   *ngIf="loader"></div> -->
+
    <div class="weather-content-inner shadow mx-5 mb-3 mt-5 border" *ngIf="datacontentShow">
-      <div class="main-content" *ngIf="loader">
+        <div class="loader" *ngIf="loader">Loading...</div>
+      <div class="main-content" *ngIf="!loader">
          <div class="card-header">
             <img src="http://openweathermap.org/images/flags/{{ country_flag | lowercase }}.png" alt="not here" />
             <span>&nbsp; {{ city_name }}</span>
 </div>
 <div class="cards-temp p-3">
-    <div class="card" style="width:130px" *ngFor="let i of datafetch">
+    <div class="card" style="width:100px" *ngFor="let i of datafetch; let i2 = index;">
         <div class="card-box">
             <img class="card-img-top" src="http://openweathermap.org/img/w/{{ i.weather[0].icon }}.png" alt="{{ i.weather[0].icon }}" width="30" />
         </div>
-        <div class="card-body text-center">
-            <h6 class="card-title m-0">{{ i.dt | date }}</h6>
+        <div class="card-body text-center p-2">
+            <small class="card-title m-0 d-inline-block">{{ DateArray[i2] }}</small>
+            <small class="card-title m-0 d-inline-block">{{ TimeArray[i2] }}</small>
+            <small class="card-title m-0 d-inline-block"><strong>{{ i.main.temp - 273 | number: '2.0-2' }} ℃</strong></small>
+            <small class="card-title m-0 d-inline-block"><strong>{{ i.wind.speed}} m/s</strong></small>
         </div>
     </div>
 </div>
 </div>
-<div class="loader" *ngIf="!loader">Loading...</div>
 </div>
 </div>
