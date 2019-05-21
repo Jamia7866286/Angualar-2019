@@ -30,7 +30,7 @@
                             "./node_modules/bootstrap/dist/css/bootstrap.min.css",
                             "src/styles.less"
                         ],
-                        "scripts": ["../node_modules/jquery/dist/jquery.min.js"],
+                        "scripts": [],
                         "es5BrowserSupport": true
                     },
                     "configurations": {
