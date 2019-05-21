@@ -1,5 +1,5 @@
 import { Component, Renderer2 } from "@angular/core"
-import { GithubdataService } from "../githubdata.service"
+import { GithubdataService } from "../services/githubdata.service"
 @Component({
    selector: "app-githubinfo",
    templateUrl: "./githubinfo.component.html",

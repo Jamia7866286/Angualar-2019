@@ -12,7 +12,7 @@ import { SignUpFormComponent } from "./sign-up-form/sign-up-form.component"
 import { environment } from './../environments/environment';
 import { GithubinfoComponent } from "./githubinfo/githubinfo.component"
 import { HttpClientModule } from "@angular/common/http"
-import { GithubdataService } from "./githubdata.service"
+import { GithubdataService } from "./services/githubdata.service"
 import { WeatherAppComponent } from "./weather-app/weather-app.component"
 // import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
