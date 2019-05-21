@@ -5,8 +5,6 @@ import { AppRoutingModule } from "./app-routing.module"
 import { AppComponent } from "./app.component"
 import { CalculatorComponent } from "./calculator/calculator.component"
 import { NavbarComponent } from "./navbar/navbar.component"
-import { HeroesComponent } from "./heroes/heroes.component"
-import { HeroDetailComponent } from "./hero-detail/hero-detail.component"
 import { Addtasktodoapp2Component } from "./addtasktodoapp2/addtasktodoapp2.component"
 import { SignUpFormComponent } from "./sign-up-form/sign-up-form.component"
 import { environment } from './../environments/environment';
@@ -26,8 +24,6 @@ import { AngularFireDatabaseModule } from 'angularfire2/database'
       AppComponent,
       CalculatorComponent,
       NavbarComponent,
-      HeroesComponent,
-      HeroDetailComponent,
       Addtasktodoapp2Component,
       SignUpFormComponent,
       GithubinfoComponent,

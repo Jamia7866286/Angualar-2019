@@ -5,7 +5,6 @@ import { Addtasktodoapp2Component } from "./addtasktodoapp2/addtasktodoapp2.comp
 import { SignUpFormComponent } from "./sign-up-form/sign-up-form.component"
 import { GithubinfoComponent } from "./githubinfo/githubinfo.component"
 import { WeatherAppComponent } from "./weather-app/weather-app.component"
-import { HeroesComponent } from './heroes/heroes.component';
 
 const routes: Routes = [
    { path: "calculator", component: CalculatorComponent },
@@ -13,7 +12,6 @@ const routes: Routes = [
    { path: "signup", component: SignUpFormComponent },
    { path: "gitinfo", component: GithubinfoComponent },
    { path: "weather", component: WeatherAppComponent },
-   { path: "heroes", component: HeroesComponent },
 ]
 
 @NgModule({

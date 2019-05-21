@@ -1,4 +1,4 @@
-<div class="container ">
+<div class="container mb-4">
     <div class="row">
         <div class="col-md-12">
             <form class="mt-4 form-inline">
@@ -14,6 +14,55 @@
             <button type="button" (click)='sub($event)' class="btn btn-danger mr-2">Sub</button>
             <button type="button" (click)='mul($event)' class="btn btn-warning mr-2">Mul</button>
             <button type="button" (click)='div($event)' class="btn btn-success">Div</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="container2">
+    <div class="calc-body">
+        <div class="calc-screen">
+
+            <div class="calc-operation">
+                <small *ngFor="let str of infix_string">{{str}}</small>
+            </div>
+
+            <div class="calc-typed" *ngIf="!resultcondition_zero">0<span class="blink-me">_</span></div>
+            <div class="output" *ngIf="resultcondition_zero">
+                <div class="calc-typed" *ngIf="!resultcondition">{{number_calculation[0] + " " + number_calculation[1] + " " + number_2 }}<span class="blink-me">_</span></div>
+                <div class="calc-typed" *ngIf="resultcondition">{{ plus_result }}<span class="blink-me">_</span></div>
+            </div>
+        </div>
+        <div class="calc-button-row">
+            <div class="button c">C</div>
+            <div class="button l">≠</div>
+            <div class="button l">%</div>
+            <div class="button l">/</div>
+        </div>
+        <div class="calc-button-row">
+            <div class="button">7</div>
+            <div class="button">8</div>
+            <div class="button">9</div>
+            <div class="button l" (click)="number_oprator_event('*')">x</div>
+        </div>
+        <div class="calc-button-row">
+            <div class="button" (click)="number2_event(4)">4</div>
+            <div class="button" (click)="number2_event(5)">5</div>
+            <div class="button">6</div>
+            <div class="button l" (click)="number_oprator_event('-')">-</div>
+        </div>
+        <div class="calc-button-row">
+            <div class="button" (click)="number1_event(1)">1</div>
+            <div class="button" (click)="number2_event(2)">2</div>
+            <div class="button" (click)="number2_event(3)">3</div>
+            <div class="button l" (click)="number_oprator_event('+')">+</div>
+        </div>
+        <div class="calc-button-row ">
+            <div class="button ">.</div>
+            <div class="button ">0</div>
+            <div class="button ">
+            </div>
+            <div class="button l ">=</div>
         </div>
     </div>
 </div>
