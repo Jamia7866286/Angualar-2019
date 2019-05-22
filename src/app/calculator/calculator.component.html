@@ -24,13 +24,12 @@
         <div class="calc-screen">
 
             <div class="calc-operation">
-                <small *ngFor="let str of infix_string">{{str}}</small>
+                <small>565</small>
             </div>
 
-            <div class="calc-typed" *ngIf="!resultcondition_zero">0<span class="blink-me">_</span></div>
-            <div class="output" *ngIf="resultcondition_zero">
-                <div class="calc-typed" *ngIf="!resultcondition">{{number_calculation[0] + " " + number_calculation[1] + " " + number_2 }}<span class="blink-me">_</span></div>
-                <div class="calc-typed" *ngIf="resultcondition">{{ plus_result }}<span class="blink-me">_</span></div>
+            <div class="calc-typed">0<span class="blink-me">_</span></div>
+            <div class="output">
+                <div class="calc-typed">56<span class="blink-me">_</span></div>
             </div>
         </div>
         <div class="calc-button-row">
@@ -43,19 +42,19 @@
             <div class="button">7</div>
             <div class="button">8</div>
             <div class="button">9</div>
-            <div class="button l" (click)="number_oprator_event('*')">x</div>
+            <div class="button l">x</div>
         </div>
         <div class="calc-button-row">
-            <div class="button" (click)="number2_event(4)">4</div>
-            <div class="button" (click)="number2_event(5)">5</div>
+            <div class="button">4</div>
+            <div class="button">5</div>
             <div class="button">6</div>
-            <div class="button l" (click)="number_oprator_event('-')">-</div>
+            <div class="button l">-</div>
         </div>
         <div class="calc-button-row">
-            <div class="button" (click)="number1_event(1)">1</div>
-            <div class="button" (click)="number2_event(2)">2</div>
-            <div class="button" (click)="number2_event(3)">3</div>
-            <div class="button l" (click)="number_oprator_event('+')">+</div>
+            <div class="button" (click)="number_event(1)">1</div>
+            <div class="button">2</div>
+            <div class="button">3</div>
+            <div class="button l" (click)="oprator_event('+')">+</div>
         </div>
         <div class="calc-button-row ">
             <div class="button ">.</div>
