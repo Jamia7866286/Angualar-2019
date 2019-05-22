@@ -1,67 +1,40 @@
-<div class="container mb-4">
-    <div class="row">
-        <div class="col-md-12">
-            <form class="mt-4 form-inline">
-                <input [(ngModel)]="num1" name="input1" type="text" class="form-control mr-2" placeholder="Enter 1st number">
-                <input [(ngModel)]="num2" name="input2" type="text" class="form-control" placeholder="Enter  2nd  number">
-                <p class="ml-2"> The {{operation}} of {{num1}} and {{num2}} = {{result}} </p>
-            </form>
-        </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col-md-12">
-            <button type="button" (click)="add($event)" class="btn btn-primary mr-2">Add</button>
-            <button type="button" (click)='sub($event)' class="btn btn-danger mr-2">Sub</button>
-            <button type="button" (click)='mul($event)' class="btn btn-warning mr-2">Mul</button>
-            <button type="button" (click)='div($event)' class="btn btn-success">Div</button>
-        </div>
-    </div>
-</div>
-
-
-<div class="container2">
+<div class="container2 mt-5">
     <div class="calc-body">
         <div class="calc-screen">
-
-            <div class="calc-operation">
-                <small>565</small>
-            </div>
-
-            <div class="calc-typed">0<span class="blink-me">_</span></div>
             <div class="output">
-                <div class="calc-typed">56<span class="blink-me">_</span></div>
+                <input type="text" class="form-control text-right kz-input-text" id="display" name="display" [value]="display" readonly>
             </div>
         </div>
         <div class="calc-button-row">
-            <div class="button c">C</div>
+            <div class="button c" (click)="limpar()">C</div>
             <div class="button l">≠</div>
             <div class="button l">%</div>
-            <div class="button l">/</div>
+            <div class="button l" (click)="defineOperation('/')">/</div>
         </div>
         <div class="calc-button-row">
-            <div class="button">7</div>
-            <div class="button">8</div>
-            <div class="button">9</div>
-            <div class="button l">x</div>
+            <div class="button" (click)="addNumber('7')">7</div>
+            <div class="button" (click)="addNumber('8')">8</div>
+            <div class="button" (click)="addNumber('9')">9</div>
+            <div class="button l" (click)="defineOperation('*')">x</div>
         </div>
         <div class="calc-button-row">
-            <div class="button">4</div>
-            <div class="button">5</div>
-            <div class="button">6</div>
-            <div class="button l">-</div>
+            <div class="button" (click)="addNumber('4')">4</div>
+            <div class="button" (click)="addNumber('5')">5</div>
+            <div class="button" (click)="addNumber('6')">6</div>
+            <div class="button l" (click)="defineOperation('-')">-</div>
         </div>
         <div class="calc-button-row">
-            <div class="button" (click)="number_event(1)">1</div>
-            <div class="button">2</div>
-            <div class="button">3</div>
-            <div class="button l" (click)="oprator_event('+')">+</div>
+            <div class="button" id="btn1" (click)="addNumber('1')">1</div>
+            <div class="button" id="btn2" (click)="addNumber('2')">2</div>
+            <div class="button" (click)="addNumber('3')">3</div>
+            <div class="button l" id="btnSoma" (click)="defineOperation('+')">+</div>
         </div>
         <div class="calc-button-row ">
-            <div class="button ">.</div>
-            <div class="button ">0</div>
+            <div class="button" (click)="addNumber('.')">.</div>
+            <div class="button" (click)="addNumber('0')">0</div>
             <div class="button ">
             </div>
-            <div class="button l ">=</div>
+            <div class="button l" (click)="calcular()">=</div>
         </div>
     </div>
 </div>

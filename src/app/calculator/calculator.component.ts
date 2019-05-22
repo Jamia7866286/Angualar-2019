@@ -1,125 +1,91 @@
 import { Component, OnInit } from '@angular/core';
+import { CalculatorServiceService } from '../services/calculator-service.service'
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.less']
 })
 export class CalculatorComponent  {
+	constructor(private calculatorService: CalculatorServiceService) { }
 
-public num1;
-public num2;
-public result;
-public operation = 'operation';
-add(e){
-	this.num1 = parseInt( this.num1 ,10);
-	this.num2 = parseInt( this.num2 ,10);
-	console.log(typeof(this.num1));
- this.result = this.num1+ this.num2;
- this.operation = 'Addition';
-}
+private number1:string;
+private number2:string;
+private operation:string;
+private result:number;
+private aux_num1:string;
+private aux_num2:string;
+  ngOnInit() {
+    this.limpar();
+  }
 
-sub(e){
-	this.num1 = parseInt( this.num1 ,10);
-	this.num2 = parseInt( this.num2 ,10);
- this.result = this.num1 -  this.num2;
- this.operation = 'Substraction';
-}
+  limpar(): void{
+    this.number1 = '0';
+    this.number2 = null;
+    this.result = null;
+    this.operation = null;
+  }
 
-mul(e){
-	this.num1 = parseInt( this.num1 ,10);
-	this.num2 = parseInt( this.num2 ,10);
- this.result = this.num1 *  this.num2;
- this.operation = 'Multiplication';
-}
+  addNumber(number: string): void{
+    if(this.operation == null){
+      this.number1 = this.concatNumber(this.number1, number);
+    }else{
+      this.number2 = this.concatNumber(this.number2, number); 1
+    }
+  }
 
-div(e){
-	this.num1 = parseInt( this.num1 ,10);
-	this.num2 = parseInt( this.num2 ,10);
- this.result = this.num1 /  this.num2;
- this.operation = 'Divisions';
-}
-  
-// resultcondition = false;
-// infix_string = [];
-// resultcondition_zero = false
-// number_calculation:any = [2]
-// plus_result;
-// number_1 = 0
-// number_2
-// number_plus
-// number1_event(val:any){
-	// this.resultcondition_zero = true;
-	// this.infix_string.push(val)
-	// console.log(this.infix_string);
-	// this.number_calculation[0] = val
-  //   console.log(this.number_calculation[0]);
-// }
-// flag = 0
+  concatNumber(numCurrent: string, numConcat: string): string {
+    //case just value 0 or null, restart value
+    if(numCurrent === '0' || numCurrent === null){
+      numCurrent = '';
+    } 
+    //first value is '.', concat 0 before '.'
+    if(numConcat === '.' && numCurrent === ''){
+      return '0.';
+    }
+    //case value is '.' and value contain '.' return value
+    if(numConcat === '.' && numCurrent.indexOf('.') > -1){
+      return numCurrent;
+    } 
+    console.log(numCurrent + numConcat);
+    
+    return (numCurrent + numConcat);
+  }
 
-// number_event(val:any){
-// 	if(this.flag === 0){
-// 			this.resultcondition_zero = true;
-// 			this.infix_string.push(val)
-// 			console.log(this.infix_string);
-// 			this.number_calculation[0] = val
-// 			console.log(this.number_calculation[0]);
-// 			this.flag = 1;
-// 			console.log(this.flag);
-			
-// 	}
-// 	else if(this.flag === 1){
-// 		this.infix_string.push(val)
-// 		this.number_calculation[2] = val;
-// 		this.resultcondition = true;
-// 		console.log(this.number_calculation[2]);
-// 		this.flag = 0;
-// 		console.log(this.flag);
-// 	}
-// 	else if(this.number_calculation[1] === '+'){
-// 		this.plus_result = this.number_calculation[0] + this.number_calculation[2];
-// 	}
-// 	else if(this.number_calculation[1] === '-'){
-// 		this.plus_result = this.number_calculation[0] - this.number_calculation[2];
-// 	}
-// 	else if(this.number_calculation[1] === '*'){
-// 		this.plus_result = this.number_calculation[0] * this.number_calculation[2];
-// 	}
-// 	else if(this.number_calculation[1] === '/'){
-// 		this.plus_result = this.number_calculation[0] / this.number_calculation[2];
-// 	}
-// 	this.number_calculation[0] = this.plus_result
-// }
-// number_oprator_event(oprator){
-// 	this.infix_string.push(oprator)
-//   this.number_calculation[1] = oprator;
-//   console.log(this.number_calculation[1]);
-// }
+  calcular(): void{
+    if(this.number2 === null){
+      return;
+    }
+    this.aux_num1 = parseFloat(this.number1).toFixed(2);
+    this.aux_num2 = parseFloat(this.number2).toFixed(2);
 
-// Clear All data
-// clear_String(){
-// 	this.plus_result = 0;
-// 	this.infix_string = [];
-// }
+    this.result = this.calculatorService.calcular(parseFloat(this.aux_num1), parseFloat(this.aux_num2), this.operation);
+  }
 
-	number_array:any[] = [];
-	number_calculation:any[] = [2]
+  defineOperation(operation: string): void {
+    this.aux_num1 = parseFloat(this.number1).toFixed(2);
+    this.aux_num2 = parseFloat(this.number2).toFixed(2);
+    
 
-	number_event(val:any){
-		this.number_array.push(val);
-		console.log(this.number_array);
-		
-		if(this.number_calculation[1] === '+'){
-			this.number_calculation[0] = this.number_array.join("");
-			console.log(this.number_calculation[0]);
-			let a = this.number_calculation[0]
-			console.log(typeof(a));
-			
-			console.log( 2 + (+a));
-		}
-	}
-
-	oprator_event(oprator){
-		this.number_calculation[1] = oprator;
-	}
+    if(this.operation === null){
+      this.operation = operation;
+      return;
+    }
+    if(this.number2 !== null){
+      this.result = this.calculatorService.calcular(parseFloat(this.aux_num1), parseFloat(this.aux_num2), this.operation);
+      this.operation = operation;
+      this.number1 = this.result.toString();
+      this.number2 = null;
+      this.result = null;
+    }
+  }
+  get display(): string {
+    if(this.result !== null){
+      return this.result.toString();
+    }
+    if(this.number2 !== null){
+      return this.number2;
+    }
+    return this.number1;
+  }
 }
 
