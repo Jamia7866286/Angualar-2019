@@ -1,5 +1,5 @@
 
-<div class="child">
+<div class="child" *ngIf="cityComponent">
     <div class="container register-form">
         <form class="form" [formGroup]='cityDataChildForm' (submit)='onsaveFrom()'>
             <div class="note">

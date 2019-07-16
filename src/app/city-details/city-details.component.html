@@ -6,6 +6,6 @@
       <app-city-data-list [parentData]='listData'></app-city-data-list>
    </div>
    <div class="right-child">
-      <app-city-data-form *ngIf="parent" (childToParentData)='displayChildData($event)'></app-city-data-form>
+      <app-city-data-form *ngIf="parent" (childToParentData)='displayChildData($event);' (cityComponentChiltToParent)='cityComponentChildToParentMethod($event);'></app-city-data-form>
    </div>
 </div>

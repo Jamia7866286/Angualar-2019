@@ -1,5 +1,27 @@
-<ul class="list-inline">
-  <li *ngFor='let item of parentData;'>
-    {{ item | json }}
-  </li>
-</ul>
+
+
+<table class="table table-hover table-bordered show-data-table">
+  <thead>
+    <tr>
+      <th>Student Id</th>
+      <th>Task Title</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Event</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let item of parentData;'>
+      <td> {{ item.id }}</td>
+      <td> {{ item.taskTitle }}</td>
+      <td> {{ item.taskStartData }}</td>
+      <td> {{ item.taskEndData }}</td>
+      <td>
+        <div class="edit-delete">
+          <i class="fa fa-pencil"></i>
+          <i class="fa fa-trash-o"></i>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

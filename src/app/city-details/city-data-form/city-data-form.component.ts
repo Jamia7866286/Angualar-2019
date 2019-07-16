@@ -9,13 +9,17 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 export class CityDataFormComponent implements OnInit {
   @Output() childToParentData = new EventEmitter();
+  cityComponent = true;
   constructor( private fb: FormBuilder) { }
   cityDataChildForm: FormGroup;
+
+
   ngOnInit() {
     this.cityDataChildForm = this.fb.group({
       taskTitle: ['', Validators.required],
       taskStartData: ['', Validators.required],
       taskEndData: ['', Validators.required],
+      id: [Math.floor((Math.random() * 1000000000000))]
     });
   }
 
@@ -26,7 +30,6 @@ export class CityDataFormComponent implements OnInit {
   onsaveFrom() {
     localStorage.setItem('cityDataForm', JSON.stringify(this.cityDataChildForm.value));
     if (localStorage.getItem('cityDataForm')) {
-      // console.log(JSON.parse(localStorage.getItem('cityDataForm')));
       this.childToParentData.emit(JSON.parse(localStorage.getItem('cityDataForm')));
     } else {console.log('key dose not exists'); }
   }

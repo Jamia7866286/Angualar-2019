@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-city-details',
@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class CityDetailsComponent implements OnInit {
 
   constructor() { }
-
   parent = false;
   parentToChild: any;
   listData = [];
@@ -21,5 +20,9 @@ export class CityDetailsComponent implements OnInit {
 
   displayChildData(data: any) {
     this.listData.push(data);
+  }
+
+  cityComponentChildToParentMethod(data: any) {
+    console.log(data);
   }
 }
