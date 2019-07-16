@@ -1,0 +1,11 @@
+<div class="parent-btn">
+  <button class="btn btn-success" (click)="showChild()">Add Tasks</button>
+</div>
+<div class="parent-main">
+   <div class="left-child">
+      <app-city-data-list [parentData]='listData'></app-city-data-list>
+   </div>
+   <div class="right-child">
+      <app-city-data-form *ngIf="parent" (childToParentData)='displayChildData($event)'></app-city-data-form>
+   </div>
+</div>

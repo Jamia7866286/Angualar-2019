@@ -1,0 +1,29 @@
+
+<div class="child">
+    <div class="container register-form">
+        <form class="form" [formGroup]='cityDataChildForm' (submit)='onsaveFrom()'>
+            <div class="note">
+                <p>Enter Your Task Details!</p>
+            </div>
+
+            <div class="form-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Task Title *" required formControlName='taskTitle' value=""/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Task Start Date *" required formControlName='taskStartData' value=""/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Task End Date *" required formControlName='taskEndData' value=""/>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btnSubmit" [disabled]='!cityDataChildForm.valid'>Save</button>
+            </div>
+          </form>
+    </div>
+</div> 
+
+
